@@ -35,13 +35,12 @@ public class LessTransformerTest {
   /**
    * This test will pass when the ANTLR based processor will be implemented.
    */
-  @Ignore
   @Test
   public void shouldTransformUsingAntlrBasedLessProcessor()
       throws Exception {
     final ResourcePreProcessor processor = new ResourcePreProcessor() {
       @Override
-      public void process(Resource resource, Reader reader, Writer writer)
+      public void process(final Resource resource, final Reader reader, final Writer writer)
           throws IOException {
         final String css = new CssPrinter().compile(IOUtils.toString(reader));
         IOUtils.write(css, writer);
